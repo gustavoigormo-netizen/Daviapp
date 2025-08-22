@@ -4,7 +4,59 @@ import numpy as np
 
 def main():
     """Main function for the Davi Streamlit application."""
-    st.title("Davi Application")
+    
+    # Custom CSS styling for the application
+    st.markdown("""
+    <style>
+    .main-header {
+        text-align: center;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 2rem;
+    }
+    
+    .metric-container {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #007bff;
+    }
+    
+    .sidebar-content {
+        background: #f1f3f4;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .chart-container {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 1rem 0;
+    }
+    
+    .info-box {
+        background: #e7f3ff;
+        border: 1px solid #b3d4fc;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+    }
+    
+    .warning-box {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<div class="main-header"><h1>Davi Application</h1></div>', unsafe_allow_html=True)
     
     # Create a large application to demonstrate the syntax error at line 1438
     st.header("Welcome to Davi App")
@@ -24,22 +76,33 @@ def main():
 
 def show_home_page():
     """Display the home page content."""
-    st.subheader("Home Page")
+    st.markdown('<div class="info-box"><h3>Home Page</h3></div>', unsafe_allow_html=True)
     st.write("Welcome to the Davi application!")
     
     # Sample content to fill lines
-    st.write("This is a comprehensive Streamlit application.")
+    st.markdown("""
+    <div class="chart-container">
+        <h4>Application Overview</h4>
+        <p>This is a comprehensive Streamlit application with advanced features.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
+        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Users", "1,234", "12%")
+        st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
+        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Revenue", "$5,678", "3%")
+        st.markdown('</div>', unsafe_allow_html=True)
     
     with col3:
+        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Growth", "89%", "-2%")
+        st.markdown('</div>', unsafe_allow_html=True)
     
     # Add more content
     st.subheader("Recent Activity")
@@ -87,7 +150,27 @@ def show_data_analysis_page():
 
 def show_visualization_page():
     """Display the visualization page."""
-    st.subheader("Data Visualization")
+    st.markdown('<div class="chart-title"><h3>Data Visualization</h3></div>', unsafe_allow_html=True)
+    
+    # Add styling for visualization controls
+    st.markdown("""
+    <style>
+    .viz-controls {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+    }
+    
+    .chart-wrapper {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin: 1rem 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
     # Chart type selection
     chart_type = st.selectbox("Select chart type", ["Line Chart", "Bar Chart", "Scatter Plot", "Histogram"])
@@ -202,7 +285,30 @@ def generate_report(data, metrics):
 
 def create_dashboard():
     """Create a comprehensive dashboard."""
+    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
     st.header("Dashboard")
+    
+    # Custom styling for the dashboard
+    st.markdown("""
+    <style>
+    .kpi-card {
+        background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 0.5rem;
+    }
+    
+    .chart-title {
+        background: #e3f2fd;
+        padding: 0.8rem;
+        border-radius: 8px;
+        border-left: 4px solid #2196f3;
+        margin-bottom: 1rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
     # KPI metrics
     col1, col2, col3, col4 = st.columns(4)
@@ -1437,7 +1543,71 @@ def additional_content():
     
     # This is line 1438 where the syntax error occurs
     
+    # Add problematic HTML content that needs to be fixed
+    # Custom dashboard styling that should be wrapped in st.markdown()
+    st.markdown("""
+    <style>
+    .dashboard-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+        margin: 2rem 0;
+    }
+    
+    .status-indicator {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    
+    .status-online { background-color: #28a745; }
+    .status-offline { background-color: #dc3545; }
+    .status-warning { background-color: #ffc107; }
+    
+    .data-table {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer-info {
+        text-align: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-top: 2px solid #dee2e6;
+        margin-top: 2rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Dashboard status section
+    st.markdown("""
+    <div class="dashboard-container">
+        <h3>System Status Dashboard</h3>
+        <div style="margin-top: 1rem;">
+            <span class="status-indicator status-online"></span>Database Connection: Online<br>
+            <span class="status-indicator status-online"></span>API Services: Online<br>
+            <span class="status-indicator status-warning"></span>Cache System: Warning<br>
+            <span class="status-indicator status-offline"></span>Backup Service: Offline
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
     return "Configuration completed"
 
 if __name__ == "__main__":
     main()
+    
+    # Add footer with proper HTML wrapping
+    st.markdown("""
+    <div class="footer-info">
+        <hr style="margin: 2rem 0; border: none; height: 1px; background: #dee2e6;">
+        <p style="margin: 0; color: #6c757d;">
+            © 2023 Davi Application | Built with Streamlit | Version 1.0.0
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
